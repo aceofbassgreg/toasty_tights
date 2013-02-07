@@ -1,9 +1,9 @@
 ToastyTights::Application.routes.draw do
-  root to: 'static_pages#store'
+  root to: 'static_pages#home'
 
   match '/about', to: 'static_pages#about'
   match '/faq', to: 'static_pages#faq'
-  match '/why', to: 'static_pages#why'
+  match '/shop', to: 'static_pages#shop'
 
 
   # The priority is based upon order of creation:
