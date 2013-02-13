@@ -1,9 +1,11 @@
 ToastyTights::Application.routes.draw do
+  resources :products
+
   root to: 'static_pages#home'
 
   match '/about', to: 'static_pages#about'
   match '/faq', to: 'static_pages#faq'
-  match '/shop', to: 'static_pages#shop'
+  match '/shop', to: 'products#shop'
 
 
   # The priority is based upon order of creation:
