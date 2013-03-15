@@ -1,18 +1,18 @@
 require 'spec_helper'
 
 describe ProductsController do
-  
   describe 'GET #new' do
-  	it "assigns a new Product to @cart" do
+  	it "creates a new product" do
   	  get :new
-  	  assigns(:product).should be_a_new(Product)
+      response.should be_redirect
     end
+  end
 
-  	it "renders the shop page" do
-  	  get :new
-  	  response.should render_template 'products/shop'
+  describe 'POST #create' do
+  	it "creates a new product and saves it" do
+  	  expect{
+  	  	post :create, product: FactoryGirl.attributes_for(:product)
+  	  }.to change(Product, :count).by(1)
   	end
-
-  	it "subtracts from in-stock"
   end
 end
