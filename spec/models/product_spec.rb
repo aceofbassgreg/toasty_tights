@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Product do
 
   before do
-  	@product = Product.new(color: "Black", size: "S", price: 30, in_stock: 10, quantity: 1)
+  	@product = Product.new(color: "Black", size: "S", price: 30, in_stock: 10)
   end
 
   subject { @product }
@@ -32,15 +32,6 @@ describe Product do
       it { should_not be_valid }
     end
 
-    context "with less in-stock than quantity ordered" do
-      before do
-      	@product.in_stock = 1
-      	@product.quantity = 2
-      end
-
-      it { should_not be_valid }
-    end
-
     context "with non-integer price" do
   	  before { @product.price = "thirty" }
   	  it { should_not be_valid }
@@ -48,26 +39,6 @@ describe Product do
 
     context "with negative integer price" do
   	  before { @product.price = -30.00 }
-  	  it { should_not be_valid }
-    end
-
-    context "with too high a quantity" do
-      before { @product.quantity = 11 }
-      it { should_not be_valid }
-    end
-
-    context "with too low a quantity" do
-      before { @product.quantity = 0 }
-      it { should_not be_valid }
-    end
-
-    context "with non-integer quantity" do
-  	  before { @product.quantity = "one" }
-  	  it { should_not be_valid }
-    end
-
-    context "with negative integer quantity" do
-  	  before { @product.quantity = -1 }
   	  it { should_not be_valid }
     end
   end
