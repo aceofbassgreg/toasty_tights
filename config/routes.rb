@@ -1,11 +1,17 @@
 ToastyTights::Application.routes.draw do
+  devise_for :admins
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
+
   resources :products
+  resources :carts
+  resources :order_items
 
   root to: 'static_pages#home'
 
   match '/about', to: 'static_pages#about'
   match '/faq', to: 'static_pages#faq'
-  match '/shop', to: 'products#shop'
+  match '/shop', to: 'order_items#new'
 
 
   # The priority is based upon order of creation:
