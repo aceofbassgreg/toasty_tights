@@ -2,12 +2,11 @@ class OrderItemsController < ApplicationController
 
   def new
   	@order_item = OrderItem.new
-    head :ok
   end
 
-  # def index 
-  # 	@products = Product.order(:id)
-  # end
+  def index 
+  	@products = Product.order(:id)
+  end
 
   def create
   	@cart = current_cart
