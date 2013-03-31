@@ -17,7 +17,7 @@ describe OrderItemsController do
   describe 'POST #create' do
     before { product = FactoryGirl.create(:product) }
 
-    it "stores items in the cart" do 
+    it "creates an order item" do 
       expect{
         post :create, order_item: FactoryGirl.attributes_for(:order_item)
       }.to change(OrderItem, :count).by(1)
