@@ -9,6 +9,7 @@ FactoryGirl.define do
   factory :order_item do
   	cart_id 1
   	product_id 1
+    quantity 1
   end 
 
 

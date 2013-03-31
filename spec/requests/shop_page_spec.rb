@@ -4,11 +4,10 @@ describe "Shop Page" do
   before { visit shop_path }
 
   describe "when products are in-stock" do
-    before { click_link "Select Product" }
     product = FactoryGirl.build(:product)
  
     before do
-      select 'Black - S', from: '#order-item-product-id'
+      select('Black - S', from: 'order_item_product_id')
       fill_in "Quantity", with: "1"
       click_button "Add to Cart"
     end
